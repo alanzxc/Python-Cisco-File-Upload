@@ -7,6 +7,7 @@ import asyncore
 
 ip = sys.argv[1]
 port = sys.argv[2]
+fileName = sys.argv[3]
 
 sys.stderr.write("Connecting to "+ip+":"+port+"\n")
 
@@ -26,7 +27,7 @@ s = getSocket()
 
 sys.stderr.write("Reading in file\n")
 
-f = open('busybox-mipsel','rb')
+f = open(fileName,'rb')
 
 fileData = ""
 
@@ -80,7 +81,7 @@ if True:
 				s = getSocket()
 				resetCount = 0
 
-			cmd = "echo -ne '"+dumpStr+"' >> /tmp/busybox-mipsel"
+			cmd = "echo -ne '"+dumpStr+"' >> /tmp/uploadedFile"
 			#cmd = "ls"
 			print cmd
 
