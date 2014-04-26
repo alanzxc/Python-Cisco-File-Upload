@@ -75,11 +75,11 @@ if True:
 
 		if dumpMax < dumpCount or byte == "":
 
-			if resetMax < resetCount:
-				s.close()
-				print "Resetting socket"
-				s = getSocket()
-				resetCount = 0
+			#if resetMax < resetCount:
+			#	s.close()
+			#	print "Resetting socket"
+			#	s = getSocket()
+			#	resetCount = 0
 
 			cmd = "echo -ne '"+dumpStr+"' >> /tmp/uploadedFile"
 			#cmd = "ls"
@@ -99,6 +99,9 @@ if True:
 #	print "Could not read file"
 #	sys.exit()
 
+cmd = "echo 'File uploaded successfully!'"
+prepend = getPrepend(cmd)
+sendCommand(s,prepend+cmd+"\n")
 
 s.close()
 
